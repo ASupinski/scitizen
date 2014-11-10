@@ -1,8 +1,20 @@
 == README
 
-This is a demo webapp for the AWS re:Invent NASA JPL challenge. It shows the basic idea of how one can consume the available Mars image json feed and turn it into an interactive experience where users can help find interesting features on Mars. It is a Rails webapp running on an Amazon EC2 instance with Mysql DB tier running in Amazaon RDS. Image annotation is done using annotorious.github.io. UI is done via Twitter's bootstrap. User authenication is done using Devise gem and achievement system is done using the merit gem.
+This is a demo webapp for the AWS re:Invent NASA JPL challenge. It shows the basic idea of how one can consume the available Mars image json feed and turn it into an interactive experience where users can help find interesting features on Mars. 
 
-* Demo URL: http://ec2-54-67-5-56.us-west-1.compute.amazonaws.com/
+Demo URL: http://ec2-54-67-5-56.us-west-1.compute.amazonaws.com/
+
+=== Technologies
+* It is a Rails webapp running on an Amazon EC2 instance with Mysql DB tier running in Amazaon RDS. 
+
+* Image annotation is done using annotorious.github.io. 
+
+* UI is done via Twitter's bootstrap. 
+
+* User authenication is done using Devise gem.
+
+* Achievement system is done using the merit gem.
+
 
 === Requirements & Setup
 * Ruby version: Tested on Ruby 2.0
