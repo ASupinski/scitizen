@@ -49,3 +49,5 @@ Since this is just a demo app, there is a lot of room for improvement. Here are 
 * Commenting and voting system
 
 * Better achievement system where we can promote normal users to expert users
+
+* Better badging system. Maybe use http://openbadges.org/
