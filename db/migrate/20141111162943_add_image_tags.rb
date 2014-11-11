@@ -1,7 +1,7 @@
 class AddImageTags < ActiveRecord::Migration
   def self.up
     create_table :image_tags do |t|
-      t.string   “tag”
+      t.string   "tag"
       t.integer  "user_id"
       t.integer  "image_id"
     end
