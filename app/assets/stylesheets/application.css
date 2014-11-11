@@ -94,15 +94,32 @@ body { padding-top: 50px; }
     margin-top: 10px;
 }
 
-.navbar-inverse .navbar-brand{
-    color: #E6914B;
+.navbar-inverse .navbar-brand, .navbar-default .navbar-brand{
+    color: #fff;
 }
 
-.navbar-inverse .navbar-nav > li > a {
-    color: #E6914B;
+.navbar-inverse .navbar-nav > li > a, .navbar-default .navbar-nav > li > a {
+    color: #fff;
 }
 
 .jumbotron {
     color: white;
     text-shadow: black 0.2em 0.2em 0.2em;
+}
+
+
+/* override styles */
+.navbar-inverse, .navbar-default {
+    background-color: #474443;
+    border-color: #474443;
+}
+
+.img-highlight {
+    width: 250px;
+    height: 250px;
+}
+
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+    background-color: #474443;
+    color: #fff;
 }
