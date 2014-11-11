@@ -21,10 +21,6 @@ test:
   database: db/test.sqlite3
 
 production:
-  <<: *default
-  database: db/test.sqlite3
-
-beanstalk_rds:
   adapter: mysql2
   encoding: utf8
   database: <%= ENV['RDS_DB_NAME'] %>
