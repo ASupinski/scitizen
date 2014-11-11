@@ -53,8 +53,8 @@ ActiveRecord::Schema.define(version: 20141108231851) do
   add_index "image_annotations", ["image_id"], name: "index_image_annotations_on_image_id"
   add_index "image_annotations", ["user_id"], name: "index_image_annotations_on_user_id"
 
-  create_table "image_tags”, force: true do |t|
-    t.string   “tag”
+  create_table "image_tags", force: true do |t|
+    t.string   "tag"
     t.integer  "user_id"
     t.integer  "image_id"
   end
@@ -132,8 +132,8 @@ ActiveRecord::Schema.define(version: 20141108231851) do
     t.string   "last_sign_in_ip"
     t.integer  "sash_id"
     t.integer  "level",                  default: 0
-    t.string   “provider”
-    t.string   “uid”
+    t.string   "provider"
+    t.string   "uid"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
