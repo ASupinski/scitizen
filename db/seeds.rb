@@ -9,7 +9,7 @@
 require 'rest_client'
 require 'json'
 
-main_url = 'https://msl-raws.s3.amazonaws.com/images/image_manifest.json'
+main_url = 'http://json.jpl.nasa.gov/data.json'
 $image_types = ['ccam_images', 'fcam_images', 'rcam_images', 'ncam_images', 'mastcam_left_images', 'mastcam_right_images', 'mahli_images', 'mardi_images']
 
 def get_images_for_sol(sol_url)
@@ -42,10 +42,13 @@ end
 
 ret = RestClient.get main_url
 json_data = JSON.parse(ret)
-sols_data = json_data['sols']
+json_data.each do |data| 
+  mission_data = RestClient.get data[‘image_manifest’]
+  sols_data = mission_data['sols']
 
-images = []
-sols_data.each do |sol_data|
-  sol_image_urls = get_images_for_sol sol_data['url']
-  images.concat(sol_image_urls)
+  images = []
+  sols_data.each do |sol_data|
+    sol_image_urls = get_images_for_sol sol_data['url']
+    images.concat(sol_image_urls)
+  end
 end
