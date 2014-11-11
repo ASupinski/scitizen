@@ -43,7 +43,8 @@ end
 ret = RestClient.get main_url
 json_data = JSON.parse(ret)
 json_data.each do |data| 
-  mission_data = RestClient.get data['image_manifest']
+  mission_ret = RestClient.get data['image_manifest']
+  mission_data = JSON.parse(mission_ret)
   sols_data = mission_data['sols']
 
   images = []
