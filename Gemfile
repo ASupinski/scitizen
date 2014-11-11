@@ -47,3 +47,5 @@ gem 'less-rails-bootstrap'
 gem 'will_paginate', '~> 3.0.5'
 gem 'bootstrap-will_paginate', '~> 0.0.10'
 gem 'multi_json', '1.7.8' 
+gem 'omniauth-facebook'
+gem 'omniauth-twitter’

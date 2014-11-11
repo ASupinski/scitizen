@@ -123,6 +123,8 @@ ActiveRecord::Schema.define(version: 20141108231851) do
     t.string   "last_sign_in_ip"
     t.integer  "sash_id"
     t.integer  "level",                  default: 0
+    t.string   “provider”
+    t.string   “uid”
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
