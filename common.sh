@@ -98,6 +98,7 @@ function deploy_eb_app {
 		--option-settings \
 			Namespace=aws:autoscaling:launchconfiguration,OptionName=InstanceType,Value="m1.medium" \
 			Namespace=aws:autoscaling:launchconfiguration,OptionName=ImageId,Value="ami-9da1b5d8" \
+			Namespace=aws:autoscaling:launchconfiguration,OptionName=EC2KeyName,Value="reinvent-2014" \
 			Namespace=aws:ec2:vpc,OptionName=VPCId,Value="${vpc_id}" \
 			Namespace=aws:ec2:vpc,OptionName=Subnets,Value="${bsPrivateSubnetA}" \
 			Namespace=aws:ec2:vpc,OptionName=Subnets,Value="${bsPrivateSubnetB}" \
@@ -118,6 +119,7 @@ function deploy_eb_app {
 			--option-settings \
 				Namespace=aws:autoscaling:launchconfiguration,OptionName=InstanceType,Value="m1.medium" \
     			Namespace=aws:autoscaling:launchconfiguration,OptionName=ImageId,Value="ami-9da1b5d8" \
+			    Namespace=aws:autoscaling:launchconfiguration,OptionName=EC2KeyName,Value="reinvent-2014" \
 				Namespace=aws:ec2:vpc,OptionName=VPCId,Value="${vpc_id}" \
 				Namespace=aws:ec2:vpc,OptionName=Subnets,Value="${bsPrivateSubnetA}" \
 				Namespace=aws:ec2:vpc,OptionName=Subnets,Value="${bsPrivateSubnetB}" \
