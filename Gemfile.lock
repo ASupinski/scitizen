@@ -80,6 +80,7 @@ GEM
     multi_json (1.7.8)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
+    mysql2 (0.3.17)
     oauth (0.4.7)
     oauth2 (1.0.0)
       faraday (>= 0.8, < 0.10)
@@ -180,6 +181,7 @@ DEPENDENCIES
   less-rails-bootstrap
   merit
   multi_json (= 1.7.8)
+  mysql2
   omniauth-facebook
   omniauth-twitter
   rails (= 4.1.1)
