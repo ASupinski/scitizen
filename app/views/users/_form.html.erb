@@ -14,6 +14,8 @@
   <div class="field">
     <%= f.label :username %><br>
     <%= f.text_field :username %>
+    <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
+    <%= link_to "Sign in with Twitter”, user_omniauth_authorize_path(:twitter) %>
   </div>
   <div class="actions">
     <%= f.submit %>
