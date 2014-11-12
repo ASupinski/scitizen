@@ -13,18 +13,28 @@ class User < ActiveRecord::Base
 
   has_many :achievement_notifications
 
+  def created_at!
+    self.remember_created_at = Time.now
+  end
+
   def self.from_omniauth(auth)
-    user = where(provider: auth.provider, uid: auth.uid)
-    if user.nil? 
-      User.new(
-        provider = auth.provider,
-        password = Devise.friendly_token[0,20],
-        email: email ? email : "#{TEMP_EMAIL_PREFIX}-#{auth.uid}-#{auth.provider}.com",
-        uid: auth.uid
-      )
-      user.skip_confirmation!
-	  user.save!
-	end
-	user
+    user = where(provider: auth.provider, uid: auth.uid).first
+    if user.nil?
+      email_is_verified = auth.info.email && (auth.info.verified || auth.info.verified_email)
+      email = if email_is_verified
+                auth.info.email
+              else
+                "#{auth.uid}@#{auth.provider}.com"
+              end
+      user = User.new(
+                provider: auth.provider,
+                password: Devise.friendly_token[0,20],
+                email:    email,
+                uid:      auth.uid
+              )
+      user.created_at!
+	    user.save
+	  end
+	  user
   end
 end
