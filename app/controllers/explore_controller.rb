@@ -34,7 +34,11 @@ class ExploreController < ApplicationController
   end
   
   def gallery_by_tag
-    @images = Image.joins(:image_tags).where({image_tags.tag => params['tag']}).paginate(page: params[:page], per_page: 15).order('created_at DESC')
+    @images = if params['tag']
+                Image.joins(:image_tags).where({image_tags.tag => params['tag']}).paginate(page: params[:page], per_page: 15).order('created_at DESC')
+              else
+                Image.paginate(page: params[:page], per_page: 15).order('created_at DESC')
+              end
     respond_to do |format|
       format.html
       format.js
