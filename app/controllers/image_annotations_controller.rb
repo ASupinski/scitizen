@@ -24,11 +24,17 @@ class ImageAnnotationsController < ApplicationController
   # POST /image_annotations
   # POST /image_annotations.json
   def create
-    @image_annotation = ImageAnnotation.new(process_params)
+    params = process_params
+    @image_annotation = ImageAnnotation.new(params)
 
     respond_to do |format|
       if @image_annotation.save
-        @image_tag = ImageTag.new(process_params)
+        itparams = {}
+        itparams['image_id'] = params['image_id']
+        itparams['user_id'] = @image_annotation['user_id']
+        itparams['tag'] = @image_annotation['text']
+        itparams['id'] = nil
+        @image_tag = ImageTag.new(itparams)
         @image_tag.save
         format.html { redirect_to @image_annotation, notice: 'Image annotation was successfully created.' }
         format.json { render :show, status: :created, location: @image_annotation }

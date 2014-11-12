@@ -43,24 +43,24 @@ module Merit
       #
       #   user.name.length > 4
       # end
-      grant_on 'image_annotations#create', badge: 'Newbie Annotator', to: :action_user do |image_annotation|
-        image_annotation.user.image_annotations.count == 1
-      end
-      grant_on 'image_annotations#create', badge: 'Bronze Annotator', to: :action_user do |image_annotation|
-        image_annotation.user.image_annotations.count == 5
-      end
-      grant_on 'image_annotations#create', badge: 'Silver Annotator', to: :action_user do |image_annotation|
-        image_annotation.user.image_annotations.count == 20
-      end
-      grant_on 'image_annotations#create', badge: 'Gold Annotator', to: :action_user do |image_annotation|
-        image_annotation.user.image_annotations.count == 100
-      end
-      grant_on 'image_annotations#create', badge: 'Star Gazer', to: :action_user do |image_annotation|
-        image_annotation.text =~ /sky|star|moon/
-      end
-      grant_on 'image_annotations#create', badge: 'Rover Lover', to: :action_user do |image_annotation|
-        image_annotation.text =~ /wheel|rover/
-      end      
+      # grant_on 'image_annotations#create', badge: 'Newbie Annotator', to: :action_user do |image_annotation|
+      #   image_annotation.user.image_annotations.count == 1
+      # end
+      # grant_on 'image_annotations#create', badge: 'Bronze Annotator', to: :action_user do |image_annotation|
+      #   image_annotation.user.image_annotations.count == 5
+      # end
+      # grant_on 'image_annotations#create', badge: 'Silver Annotator', to: :action_user do |image_annotation|
+      #   image_annotation.user.image_annotations.count == 20
+      # end
+      # grant_on 'image_annotations#create', badge: 'Gold Annotator', to: :action_user do |image_annotation|
+      #   image_annotation.user.image_annotations.count == 100
+      # end
+      # grant_on 'image_annotations#create', badge: 'Star Gazer', to: :action_user do |image_annotation|
+      #   image_annotation.text =~ /sky|star|moon/
+      # end
+      # grant_on 'image_annotations#create', badge: 'Rover Lover', to: :action_user do |image_annotation|
+      #   image_annotation.text =~ /wheel|rover/
+      # end
     end
   end
 end
