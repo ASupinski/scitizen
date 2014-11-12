@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141111162943) do
+ActiveRecord::Schema.define(version: 20141111190143) do
 
   create_table "achievement_notifications", force: true do |t|
     t.integer  "user_id"
@@ -77,6 +77,8 @@ ActiveRecord::Schema.define(version: 20141111162943) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "images", ["url"], name: "index_images_on_url", unique: true
 
   create_table "merit_actions", force: true do |t|
     t.integer  "user_id"
