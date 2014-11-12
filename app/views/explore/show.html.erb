@@ -15,6 +15,23 @@ $.getJSON( "/explore/list_anno?image_id=<%= @image.id %>", function( data ) {
 });
 
 });
+
+jQuery(document).keydown(function(e) {
+	var currentImageId = "<%= @image.id %>";
+	
+    switch(e.which) {
+        case 37: // left
+			var previousImageId = currentImageId - 1;
+			window.location.href="/explore/" + previousImageId;
+        break;
+        case 39: // right
+			var nextImageId = currentImageId + 1;
+			window.location.href="/explore/" + nextImageId;
+        break;
+        default: return; // exit this handler for other keys
+    }
+    e.preventDefault(); // prevent the default action (scroll / move caret)
+});
 </script>
 
 <div id="fb-root"></div>
