@@ -1,10 +1,10 @@
 <div class="page-header">
+<form action="/explore/gallery_by_tag" method="GET">
   <div class="input-group">
-	<form action="/explore/gallery_by_tag" method="GET" />
 		<input type="search" name="tag" placeholder="Search" class="form-control">
 		<span class="input-group-addon" onclick="get_form(this).submit(); return false"><span class="glyphicon glyphicon-search"></span></span>
-	</form>
   </div>
+</form>
 
   <br/>
 
@@ -30,7 +30,7 @@
     </ul>
   </div>
 </div>
- 
+
 <div id="my-images">
   <%= render partial: "image", collection: @images %>
 </div>
