@@ -48,10 +48,10 @@ json_data.each do |mission,data|
   mission_data = JSON.parse(mission_ret)
   sols_data = mission_data['sols']
 
-  images = []
+  # images = []
   sols_data.each do |sol_data|
     puts "#{counter += 1}: Mission: #{mission}, Sol: #{sol_data['url']}"
     sol_image_urls = get_images_for_sol sol_data['url']
-    images.concat(sol_image_urls)
+    # images.concat(sol_image_urls)
   end
 end
