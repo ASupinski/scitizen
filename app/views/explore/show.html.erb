@@ -121,12 +121,21 @@ jQuery(document).keydown(function(e) {
 <script>
     $('.btn-tag').on('click', function() {
         $(this).toggleClass('btn-tag-active');
+        var tagValue = $(this).attr('data-tag');
 
         if ($(this).hasClass('btn-tag-active')) {
             // add tag to image
-            var tagValue = $(this).attr('data-tag');
             $.post( "/image_tags.json", { image_id: "<%= @image.id %>", tag: tagValue } );
 
+        } else {
+            $.ajax({
+                url: '/image_tags/<%= @image.id %>',
+                type: 'DELETE',
+                data: { image_id: "<%= @image.id %>", tag: tagValue },
+                success: function(result) {
+                    alert('deleted tag');
+                }
+            });
         }
 
     });
