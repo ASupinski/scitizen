@@ -14,18 +14,17 @@ class User < ActiveRecord::Base
   has_many :achievement_notifications
 
   def self.from_omniauth(auth)
-    puts "starting the from omniauth"
-    begin
-    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-      puts "trying to insert the user #{auth}"
-      #twitter doesn’t provide the email so just skip
-      #user.email = auth.info.email
-      user.password = Devise.friendly_token[0,20]
-      user.username = auth.info.name   # assuming the user model has a name
-      #user.image = auth.info.image # assuming the user model has an image
-    end
-    rescue
-    puts "Error #{$!}"
-    end
+    user = where(provider: auth.provider, uid: auth.uid)
+    if user.nil? 
+      User.new(
+        provider = auth.provider,
+        password = Devise.friendly_token[0,20],
+        email: email ? email : "#{TEMP_EMAIL_PREFIX}-#{auth.uid}-#{auth.provider}.com",
+        uid: auth.uid
+      )
+      user.skip_confirmation!
+	  user.save!
+	end
+	user
   end
 end
