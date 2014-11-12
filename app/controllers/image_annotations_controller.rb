@@ -30,7 +30,7 @@ class ImageAnnotationsController < ApplicationController
     respond_to do |format|
       if @image_annotation.save
         itparams = {}
-        itparams['image_id'] = params['image_id']
+        itparams['image_id'] = params[:image_id]
         itparams['user_id'] = @image_annotation['user_id']
         itparams['tag'] = @image_annotation['text']
         itparams['id'] = nil
