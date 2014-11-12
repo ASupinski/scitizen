@@ -3,8 +3,8 @@ jQuery(document).ready(function($) {
 
 anno.makeAnnotatable(document.getElementById('something'));
 anno.addHandler('onAnnotationCreated', function(annotation) {
-    console.log(annotation.text);
-    console.log(annotation.shapes[0].geometry.x);
+//    console.log(annotation.text);
+//    console.log(annotation.shapes[0].geometry.x);
     $.post( '/image_annotations.json', annotation );
 });
 
@@ -98,12 +98,12 @@ jQuery(document).keydown(function(e) {
 <div class="row">
 <div class="col-md-12">
   <div >
-    <button type="button" class="btn btn-tag">Layered Rocks</button>
-    <button type="button" class="btn btn-tag">Curiosity</button>
-    <button type="button" class="btn btn-tag">Blueberries</button>
-    <button type="button" class="btn btn-tag">Interesting Rocks</button>
-    <button type="button" class="btn btn-tag">Sand Dunes</button>
-    <button type="button" class="btn btn-tag">Difficult to See</button>
+    <button type="button" class="btn btn-tag" data-tag="Layered Rocks">Layered Rocks</button>
+    <button type="button" class="btn btn-tag" data-tag="Curiosity">Curiosity</button>
+    <button type="button" class="btn btn-tag" data-tag="Blueberries">Blueberries</button>
+    <button type="button" class="btn btn-tag" data-tag="Interesting Rocks">Interesting Rocks</button>
+    <button type="button" class="btn btn-tag" data-tag="Sand Dunes">Sand Dunes</button>
+    <button type="button" class="btn btn-tag" data-tag="Difficult to See">Difficult to See</button>
   </div>
 </div>
 <div class="col-md-12">
@@ -121,5 +121,13 @@ jQuery(document).keydown(function(e) {
 <script>
     $('.btn-tag').on('click', function() {
         $(this).toggleClass('btn-tag-active');
+
+        if ($(this).hasClass('btn-tag-active')) {
+            // add tag to image
+            var tagValue = $(this).attr('data-tag');
+            $.post( "/image_tags.json", { image_id: "<%= @image.id %>", tag: tagValue } );
+
+        }
+
     });
 </script>

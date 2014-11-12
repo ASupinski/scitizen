@@ -19,6 +19,12 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :image_tags do
+    collection do
+      get 'testit'
+    end
+  end
+
   resources :images
 
   resources :image2_tests

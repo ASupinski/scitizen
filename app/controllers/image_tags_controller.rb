@@ -24,7 +24,7 @@ class ImageTagsController < ApplicationController
   # POST /image_tags
   # POST /image_tags.json
   def create
-    @image_tags = ImageTag.new(process_params)
+    @image_tag = ImageTag.new(process_params)
 
     respond_to do |format|
       if @image_tag.save
