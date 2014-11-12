@@ -139,3 +139,8 @@ body { padding-top: 50px; }
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
     color: #a8a8a8;
 }
+
+.btn-tag-active {
+    background-color: #d47f66;
+}
+

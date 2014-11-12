@@ -45,9 +45,7 @@ jQuery(document).keydown(function(e) {
 
 
 <%- model_class = ImageTest -%>
-<div class="page-header">
-  <span class="glyphicon glyphicon-info-sign"></span> Click and drag on image to annotate interesting features.
-</div>
+<br/>
 
 <div class="row">
   <div class="col-md-2">
@@ -96,10 +94,32 @@ jQuery(document).keydown(function(e) {
   <div class="fb-like" data-href="<%= request.original_url %>" data-width="55px" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
 </div>
 
+
 <div class="row">
+<div class="col-md-12">
+  <div >
+    <button type="button" class="btn btn-tag">Layered Rocks</button>
+    <button type="button" class="btn btn-tag">Curiosity</button>
+    <button type="button" class="btn btn-tag">Blueberries</button>
+    <button type="button" class="btn btn-tag">Interesting Rocks</button>
+    <button type="button" class="btn btn-tag">Sand Dunes</button>
+    <button type="button" class="btn btn-tag">Difficult to See</button>
+  </div>
+</div>
+<div class="col-md-12">
+  <span class="glyphicon glyphicon-info-sign"></span> Click and drag on the image to annotate interesting features.
+</div>
+
+  <br/><br/>
 <div class="col-md-12">
   <div>
     <%= image_tag @image.url, :id => 'something' %>
   </div>
 </div>
 </div>
+
+<script>
+    $('.btn-tag').on('click', function() {
+        $(this).toggleClass('btn-tag-active');
+    });
+</script>
