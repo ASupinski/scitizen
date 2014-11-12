@@ -26,5 +26,6 @@ class User < ActiveRecord::Base
     end
     rescue
     puts "Error #{$!}"
+    end
   end
 end
