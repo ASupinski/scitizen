@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     collection do
       get 'random'
       get 'gallery'
+	  get 'gallery_by_tag'
       get 'list_anno'
     end
   end
