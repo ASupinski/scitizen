@@ -1,7 +1,9 @@
 <div class="page-header">
   <div class="input-group">
-    <input type="search" placeholder="Search" class="form-control">
-    <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+	<form action="/explore/gallery_by_tag" method="GET" />
+		<input type="search" name="tag" placeholder="Search" class="form-control">
+		<span class="input-group-addon" onclick="get_form(this).submit(); return false"><span class="glyphicon glyphicon-search"></span></span>
+	</form>
   </div>
 
   <br/>
