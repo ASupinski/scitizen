@@ -1,5 +1,7 @@
 class Image < ActiveRecord::Base
 	has_many :image_annotations
+	has_many :image_tags
+	
 	def thumbnail_url
 		thumb = url.gsub(".jpg", "-thm.jpg")
 	end
