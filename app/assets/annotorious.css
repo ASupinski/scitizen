@@ -141,7 +141,7 @@
 }
 
 .annotorious-popup-button-edit {
-  background:url(pencil.png);
+  background:url(../../vendor/assets/images/pencil.png);
   width:16px;
   height:16px;
   text-indent:100px;
