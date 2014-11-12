@@ -42,6 +42,8 @@ $.getJSON( "/my_annotations/list_anno?image_id=<%= @random_image.id %>", functio
       <strong><%= model_class.human_attribute_name(:sol) %>:</strong> <%= @random_image.sol %><br/>
       <strong><%= model_class.human_attribute_name(:camera_type) %>:</strong> <%= @random_image.camera_type %><br/>
       <strong><%= model_class.human_attribute_name(:image_time) %>:</strong> <%= @random_image.image_time %><br/>
+      <strong># of Annotations:</strong> <%= @random_image.image_annotations.count %>
+      <%= "(Be the first one to annotate this picture)" if @random_image.image_annotations.count == 0 %>
     </div>
   </div>
   <div class="text-center"><%= link_to "<button type='button' class='btn btn-primary btn-sm'><span class='glyphicon glyphicon-question-sign'></span> Random Image</button>".html_safe, random_explore_index_path %></div><br/>

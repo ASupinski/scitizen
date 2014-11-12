@@ -19,36 +19,53 @@ $.getJSON( "/explore/list_anno?image_id=<%= @image.id %>", function( data ) {
 
 <%- model_class = ImageTest -%>
 <div class="page-header">
-  <h3>Exploring Mars</h3>
+  <span class="glyphicon glyphicon-info-sign"></span> Click and drag on image to annotate interesting features.
 </div>
 
-<div class="col-md-2">
-  <div class="panel panel-primary">
-    <div class="panel-heading">
-      <h3 class="panel-title">Instruction</h3>
-    </div>
-    <div class="panel-body">
-      Click and drag on image to annotate interesting features.
-      <% unless current_user %>
-      <br/><br/><%= link_to 'Register', new_user_registration_path %> and <%= link_to 'sign in', new_user_session_path %> to keep track of your works and to earn achievements.
-      <% end %>
-    </div>
-  </div>  
-  <div class="panel panel-primary">
-    <div class="panel-heading">
-      <h3 class="panel-title">Image Info</h3>
-    </div>
-    <div class="panel-body">
-      <strong><%= model_class.human_attribute_name(:sol) %>:</strong> <%= @image.sol %><br/>
-      <strong><%= model_class.human_attribute_name(:camera_type) %>:</strong> <%= @image.camera_type %><br/>
-      <strong><%= model_class.human_attribute_name(:image_time) %>:</strong> <%= @image.image_time %><br/>
+<div class="row">
+  <div class="col-md-2">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= @image.image_annotations.count %> Annotations</h3>
+      </div>
     </div>
   </div>
-  <div class="text-center"><%= link_to "<button type='button' class='btn btn-primary btn-sm'><span class='glyphicon glyphicon-question-sign'></span> Random Image</button>".html_safe, random_explore_index_path %></div><br/>
-  <div class="text-center"><%= link_to "<button type='button' class='btn btn-primary btn-sm'><span class='glyphicon glyphicon-picture'></span> Image Gallery</button>".html_safe, gallery_explore_index_path %></div>  
+  <div class="col-md-3">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= model_class.human_attribute_name(:image_time) %></h3>
+      </div>
+      <div class="panel-body">
+        <%= @image.image_time %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-1">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= model_class.human_attribute_name(:sol) %></h3>
+      </div>
+      <div class="panel-body">
+        <%= @image.sol %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= model_class.human_attribute_name(:camera_type) %></h3>
+      </div>
+      <div class="panel-body">
+        <%= @image.camera_type %>
+      </div>
+    </div>
+  </div>
 </div>
-<div class="col-md-10">
+
+<div class="row">
+<div class="col-md-12">
   <div>
     <%= image_tag @image.url, :id => 'something' %>
   </div>
+</div>
 </div>
