@@ -17,6 +17,16 @@ $.getJSON( "/explore/list_anno?image_id=<%= @image.id %>", function( data ) {
 });
 </script>
 
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=172047699584380&version=v2.0";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
 <%- model_class = ImageTest -%>
 <div class="page-header">
   <span class="glyphicon glyphicon-info-sign"></span> Click and drag on image to annotate interesting features.
@@ -60,6 +70,13 @@ $.getJSON( "/explore/list_anno?image_id=<%= @image.id %>", function( data ) {
       </div>
     </div>
   </div>
+
+
+  <%= link_to "http://twitter.com/home?status=NASA Mars Image #{request.original_url}" do %>
+      <%= image_tag('twitter.png') %>
+  <% end %>
+
+  <div class="fb-like" data-href="<%= request.original_url %>" data-width="55px" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
 </div>
 
 <div class="row">
