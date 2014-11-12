@@ -17,7 +17,7 @@ $.getJSON( "/explore/list_anno?image_id=<%= @image.id %>", function( data ) {
 });
 
 jQuery(document).keydown(function(e) {
-	var currentImageId = "<%= @image.id %>";
+	var currentImageId = <%= @image.id %>;
 	
     switch(e.which) {
         case 37: // left
