@@ -28,6 +28,8 @@ class ImageAnnotationsController < ApplicationController
 
     respond_to do |format|
       if @image_annotation.save
+        @image_tag = ImageTag.new(process_params)
+        @image_tag.save
         format.html { redirect_to @image_annotation, notice: 'Image annotation was successfully created.' }
         format.json { render :show, status: :created, location: @image_annotation }
       else

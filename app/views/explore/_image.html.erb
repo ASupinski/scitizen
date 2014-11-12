@@ -1,3 +1,6 @@
-<%= link_to url_for(controller: :explore, id: image.id, action: :show) do %>
-<%= image_tag image.url, width: "300" %> 
+<div class="pull-left">
+<%= link_to url_for(controller: :explore, id: image.id, action: :show), :class => "gallery-image" do %>
+<%= image_tag image.thumbnail_url, width: "300px", height:"300px" %>
+<div><span class="badge"><%= image.annotations_count %></span> annotations</div>
 <% end %>
+</div>
