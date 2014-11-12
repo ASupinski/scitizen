@@ -14,6 +14,8 @@ class User < ActiveRecord::Base
   has_many :achievement_notifications
 
   def self.from_omniauth(auth)
+    puts "starting the from omniauth"
+    begin
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       puts "trying to insert the user #{auth}"
       #twitter doesn’t provide the email so just skip
@@ -22,5 +24,7 @@ class User < ActiveRecord::Base
       user.username = auth.info.name   # assuming the user model has a name
       #user.image = auth.info.image # assuming the user model has an image
     end
+    rescue
+    puts "Error #{$!}"
   end
 end
